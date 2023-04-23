@@ -27,15 +27,6 @@ int type_string(va_list args)
 	return (i);
 }
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- * Return: 1 or -1
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-/**
  * _escape - escape character to change
  * the meaning of the next character
  * @c: the char to be changed.
@@ -61,6 +52,15 @@ int _escape(char c)
 	return (0);
 }
 /**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ * Return: 1 or -1
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
  * _printf - produces output according to a format.
  * @format:  a character string
  * Return: the number of characters printed
@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 		{"s", type_string},
 		{NULL, NULL}
 	};
-	int i = 0, j = 0, count = 0;
+	int i = 0, j = 0, k, count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -80,21 +80,29 @@ int _printf(const char *format, ...)
 	{
 		if (format[j] == '%')
 		{
+			k = j + 1;
+			while (format[k] == ' ')
+				k++;
+			if (format[k] == '\0')
+				return (-1);
 			i = 0;
-			j++;
-			if (format[j] == '%')
-				count += _putchar(format[j]);
+			if (format[k] == '%')
+				count += _putchar(format[k]);
 			else
 			{
-				while (x[i].typ && (*(x[i].typ) != format[j]))
+				while (x[i].typ && (*(x[i].typ) != format[k]))
 					i++;
 				if (x[i].typ)
 					count += x[i].fn(args);
 				else
 				{
-					count += _putchar(format[--j]);
+					count += _putchar(format[j]);
+					count += _putchar(format[++j]);
+					if (k > j)
+						count += _putchar(format[k]);
 				}
 			}
+			j = k;
 		}
 		else if (format[j] == '\\')
 			count += _escape(format[++j]);

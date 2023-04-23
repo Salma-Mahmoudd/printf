@@ -11,6 +11,7 @@ int type_string(va_list args);
 int _putchar(char c);
 int _escape(char c);
 
+
 /**
  * struct format - A new struct type.
  * @type: representing a data type.
