@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * type_char - prints a char.
- * @arg: arg point to the char to be printed.
+ * @args: arg point to the char to be printed.
  * Return: length of char
  */
 int type_char(va_list args)
@@ -11,7 +11,7 @@ int type_char(va_list args)
 }
 /**
  * type_string - prints a string.
- * @arg: arg point to the string to be printed.
+ * @args: arg point to the string to be printed.
  * Return: length of string
  */
 int type_string(va_list args)
@@ -55,9 +55,9 @@ int _escape(char c)
 		_putchar('%');
 		return (1);
 	}
-	else if (c == '\\')
+	else if (c == 92)
 	{
-		_putchar('\\');
+		_putchar(92);
 		return (1);
 	}
 	return (0);
@@ -80,9 +80,11 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format != NULL && (format[j] != '\0'))
 	{
-		if (format[j] == 37)
+		if (format[j] == '%')
 		{
-			if ((j == 0) || (j != 0 && format[j - 1] != 92))
+			if (format[j + 1] == '%')
+				_putchar(format[j++]);
+			else
 			{
 				j++;
 				while (x[i].typ != NULL && *(x[i].typ) != format[j])
@@ -92,7 +94,7 @@ int _printf(const char *format, ...)
 				i = 0;
 			}
 		}
-		else if (format[j] != '\\')
+		else if (format[j] != 92)
 			count += _putchar(format[j]);
 		else
 		{
