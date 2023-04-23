@@ -27,29 +27,40 @@ int type_string(va_list args)
 	return (i);
 }
 /**
- * _escape - escape character to change
- * the meaning of the next character
- * @c: the char to be changed.
+ * _percent - check for % char
+ * @k_1: char to be checked
+ * @k: second char
+ * @args: arg point to the string to be printed.
  * Return: length of what will be printed
  */
-int _escape(char c)
+int _percent(char k_1, char k, va_list args)
 {
-	if (c == 'n')
+	type x[] = {
+		{"c", type_char},
+		{"s", type_string},
+		{NULL, NULL}
+	};
+	int i = 0, count = 0;
+
+	if (k == '\0')
+		return (-1);
+	else if (k == '%')
+		count += _putchar(k);
+	else
 	{
-		_putchar('\n');
-		return (0);
+		while (x[i].typ && (*(x[i].typ) != k))
+			i++;
+		if (x[i].typ)
+			count += x[i].fn(args);
+		else
+		{
+			count += _putchar('%');
+			if (k_1 == ' ')
+				count += _putchar(' ');
+			count += _putchar(k);
+		}
 	}
-	else if (c == '%')
-	{
-		_putchar('%');
-		return (1);
-	}
-	else if (c == 92)
-	{
-		_putchar(92);
-		return (1);
-	}
-	return (0);
+	return (count);
 }
 /**
  * _putchar - writes the character c to stdout
@@ -67,12 +78,7 @@ int _putchar(char c)
  */
 int _printf(const char *format, ...)
 {
-	type x[] = {
-		{"c", type_char},
-		{"s", type_string},
-		{NULL, NULL}
-	};
-	int i = 0, j = 0, k, count = 0;
+	int i = 0, j = 0, count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -80,36 +86,22 @@ int _printf(const char *format, ...)
 	{
 		if (format[j] == '%')
 		{
-			k = j + 1;
-			while (format[k] == ' ')
-				k++;
-			if (format[k] == '\0')
+			j++;
+			while (format[j] == ' ')
+				j++;
+			i = _percent(format[j - 1], format[j], args);
+			if (i == -1)
 				return (-1);
-			i = 0;
-			if (format[k] == '%')
-				count += _putchar(format[k]);
-			else
-			{
-				while (x[i].typ && (*(x[i].typ) != format[k]))
-					i++;
-				if (x[i].typ)
-					count += x[i].fn(args);
-				else
-				{
-					count += _putchar(format[j]);
-					count += _putchar(format[++j]);
-					if (k > j)
-						count += _putchar(format[k]);
-				}
-			}
-			j = k;
+			count += i;
 		}
-		else if (format[j] == '\\')
-			count += _escape(format[++j]);
+		else if (format[j] == '\\' && format[j + 1] == 'n')
+			count += _putchar(format[++j]);
 		else
 			count += _putchar(format[j]);
 		j++;
 	}
 	va_end(args);
+	if (!format)
+		return (-1);
 	return (count);
 }

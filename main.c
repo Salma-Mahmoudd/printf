@@ -11,6 +11,7 @@ int main(void)
 {
 	int len;
 
+	printf("%b", 98);
 	len = _printf("%            %    ");
 	printf("%d\n",len);
 	len = _printf("%                ");
@@ -22,11 +23,11 @@ int main(void)
 	printf("\n%c yours \n", '\0');
 
 
-	_printf("hi: you %s nothing. \n", (char *)0);
+	/*_printf("hi: you %s nothing. \n", (char *)0);
 	printf("hi: you %s nothing. \n", (char *)0);
 	_printf("%%");
 	printf("%%");
-	printf("%%\n");
+	printf("%%\n");*/
 
 	len = _printf("complete the sentence: you %s nothing, .\n", (char*)0);
 	printf("%d\n",len);
@@ -45,23 +46,21 @@ int main(void)
 	printf("%c yours \n", 48);
 	_printf("% mine \n");
 	printf("% yours \n");
-	_printf("%! mine \n");
+	/*_printf("%! mine \n");
 	printf("%! yours \n");
 	_printf("%c mine ", '\0');
 	printf("%c yours ", '\0');
 	_printf("%%%c\n", 'H');
 	printf("%%%c\n", 'H');
-	_printf("\\%c\n", 'H');
-	printf("\\%c\n", 'H');
 	_printf("%c\n", 'H');
 	printf("%c\n", 'H');
 	_printf("%c%s%c\n", 'H', "isalma", '!');
-	printf("%c%s%c\n", 'H', "isalma", '!');
+	printf("%c%s%c\n", 'H', "isalma", '!');*/
 	_printf("%c%%\n", 'H');
 	printf("%c%%\n", 'H');
-	_printf("Character:[%c]\n", 'H');
+	/*_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
 	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
+	printf("String:[%s]\n", "I am a string !");*/
 	return (0);
 }

@@ -6,9 +6,10 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
+int _putchar(char c);
 int type_char(va_list args);
 int type_string(va_list args);
-int _putchar(char c);
+int _percent(char k_1, char k, va_list args);
 int _escape(char c);
 
 
