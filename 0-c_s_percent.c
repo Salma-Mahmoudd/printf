@@ -20,13 +20,11 @@ int type_string(va_list args)
 	int i = 0;
 
 	str = va_arg(args, char *);
-	if (str != NULL)
-	{
-		while (str[i] != '\0')
-			_putchar(str[i++]);
-		return (i);
-	}
-	return (0);
+	if (str == NULL)
+		str = "(null)";
+	while (str[i])
+		_putchar(str[i++]);
+	return (i);
 }
 /**
  * _putchar - writes the character c to stdout
@@ -78,29 +76,30 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	while (format != NULL && (format[j] != '\0'))
+	while (format && (*(format + j)))
 	{
 		if (format[j] == '%')
 		{
-			if (format[j + 1] == '%')
-				_putchar(format[j++]);
+			i = 0;
+			j++;
+			if (format[j] == '%')
+				count += _putchar(format[j]);
 			else
 			{
-				j++;
-				while (x[i].typ != NULL && *(x[i].typ) != format[j])
+				while (x[i].typ && (*(x[i].typ) != format[j]))
 					i++;
-				if (x[i].typ != NULL)
+				if (x[i].typ)
 					count += x[i].fn(args);
-				i = 0;
+				else
+				{
+					count += _putchar(format[--j]);
+				}
 			}
 		}
-		else if (format[j] != 92)
-			count += _putchar(format[j]);
+		else if (format[j] == '\\')
+			count += _escape(format[++j]);
 		else
-		{
-			j++;
-			count += _escape(format[j]);
-		}
+			count += _putchar(format[j]);
 		j++;
 	}
 	va_end(args);
