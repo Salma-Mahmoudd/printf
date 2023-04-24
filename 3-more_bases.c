@@ -129,4 +129,4 @@ int type_HEX(va_list args)
 		free(cp);
 	}
 	return (count);
-
+}
