@@ -41,6 +41,9 @@ int _percent(char k_1, char k, va_list args)
 		{"d", type_int},
 		{"i", type_int},
 		{"b", type_bin},
+		{"u", type_uint},
+		{"o", type_oct},
+		{"x", type_hex},
 		{NULL, NULL}
 	};
 	int i = 0, count = 0;
