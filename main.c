@@ -11,12 +11,24 @@ int main(void)
 {
 	int len;
 
-	len = _printf("%o", 192);
+	len = _printf("%u", 192);
 	printf("%d\n", len);
-	len = printf("%x", 192);
-	printf("%d\n", len);
-	len = _printf("%o", 0);
+	len = printf("%u", 192);
 	printf("%d\n", len);
 
+	len = _printf("%u", 4294967295);
+	printf("%d\n", len);
+	len = printf("%u", 4294967295);
+	printf("%d\n", len);
+
+	len = _printf("%u", 0);
+	printf("%d\n", len);
+	len = printf("%u", 0);
+	printf("%d\n", len);
+
+	len = printf("%u", -5);
+	printf("%d\n", len);
+	len = _printf("%u", -5);
+	printf("%d\n", len);
 	return (0);
 }
