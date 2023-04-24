@@ -16,7 +16,7 @@ int _escape(char c);
 
 /**
  * struct format - A new struct type.
- * @type: representing a data type.
+ * @typ: representing a data type.
  * @fn: function pointer.
  */
 typedef struct format
