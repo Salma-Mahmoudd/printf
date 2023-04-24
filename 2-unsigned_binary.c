@@ -20,10 +20,13 @@ int type_bin(va_list args)
 		while (n != 0)
 			len++, n /= 2;
 		cp = malloc(sizeof(int) * len);
+		if (!cp)
+			return (0);
 		for (n = 0; n < len; n++)
 			cp[n] = num % 2, num /= 2;
 		for (n = (len - 1); n >= 0; n--)
 			count += _putchar('0' + cp[n]);
+	free(cp);
 	}
 	return (count);
 }
