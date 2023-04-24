@@ -40,6 +40,7 @@ int _percent(char k_1, char k, va_list args)
 		{"s", type_string},
 		{"d", type_int},
 		{"i", type_int},
+		{"b", type_bin},
 		{NULL, NULL}
 	};
 	int i = 0, count = 0;
