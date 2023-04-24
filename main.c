@@ -11,15 +11,11 @@ int main(void)
 {
 	int len;
 
-	len = _printf("%b", 192);
+	len = _printf("%o", 192);
 	printf("%d\n", len);
-	len = _printf("%b", 0);
+	len = printf("%x", 192);
 	printf("%d\n", len);
-	len = _printf("%b", 4294967295);
-	printf("%d\n", len);
-	len = _printf("%b", 10000);
-	printf("%d\n", len);
-	len = _printf("%b", 88);
+	len = _printf("%o", 0);
 	printf("%d\n", len);
 
 	return (0);
