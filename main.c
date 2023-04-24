@@ -9,7 +9,18 @@
  */
 int main(void)
 {
-	_printf("%b\n", 200);
-	_printf("%b\n", 0);
+	int len;
+
+	len = _printf("%b", 192);
+	printf("%d\n", len);
+	len = _printf("%b", 0);
+	printf("%d\n", len);
+	len = _printf("%b", 4294967295);
+	printf("%d\n", len);
+	len = _printf("%b", 10000);
+	printf("%d\n", len);
+	len = _printf("%b", 88);
+	printf("%d\n", len);
+
 	return (0);
 }

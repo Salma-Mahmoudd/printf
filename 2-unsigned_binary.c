@@ -7,30 +7,23 @@
  */
 int type_bin(va_list args)
 {
-	int i = 1, count = 0, zeros = 0;
+	int n, count = 0, len = 0;
 	unsigned int num;
+	int *cp;
 
 	num = va_arg(args, unsigned int);
+	n = (int)num;
 	if (num == 0)
 		count += _putchar('0' + 0);
 	else
 	{
-		while (num % 2 == 0)
-			num /= 2, zeros++;
-		while (num != 0)
-		{
-			num /= 2;
-			if (num % 2 == 0)
-				i = i * 10;
-			else
-				i = i * 10 + 1;
-		}
-		while (i % 10 == 0)
-			i /= 10;
-		while (i != 0)
-			count += _putchar('0' + (i % 10)), i /= 10;
-		while (zeros != 0)
-			zeros--, count += _putchar('0' + 0);
+		while (n != 0)
+			len++, n /= 2;
+		cp = malloc(sizeof(int) * len);
+		for (n = 0; n < len; n++)
+			cp[n] = num % 2, num /= 2;
+		for (n = (len - 1); n >= 0; n--)
+			count += _putchar('0' + cp[n]);
 	}
 	return (count);
 }
