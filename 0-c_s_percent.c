@@ -38,6 +38,8 @@ int _percent(char k_1, char k, va_list args)
 	type x[] = {
 		{"c", type_char},
 		{"s", type_string},
+		{"d", type_int},
+		{"i", type_int},
 		{NULL, NULL}
 	};
 	int i = 0, count = 0;
