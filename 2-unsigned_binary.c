@@ -7,12 +7,12 @@
  */
 int type_bin(va_list args)
 {
-	int n, count = 0, len = 0;
-	unsigned int num;
+	int i, count = 0, len = 0;
+	unsigned int n, num;
 	int *cp;
 
 	num = va_arg(args, unsigned int);
-	n = (int)num;
+	n = num;
 	if (num == 0)
 		count += _putchar('0' + 0);
 	else
@@ -22,10 +22,10 @@ int type_bin(va_list args)
 		cp = malloc(sizeof(int) * len);
 		if (!cp)
 			return (0);
-		for (n = 0; n < len; n++)
-			cp[n] = num % 2, num /= 2;
-		for (n = (len - 1); n >= 0; n--)
-			count += _putchar('0' + cp[n]);
+		for (i = 0; i < len; i++)
+			cp[i] = '0' + (num % 2), num /= 2;
+		for (i = (len - 1); i >= 0; i--)
+			count += _putchar(cp[i]);
 	free(cp);
 	}
 	return (count);
