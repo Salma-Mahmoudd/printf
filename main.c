@@ -9,16 +9,16 @@
  */
 int main(void)
 {
-/*
+
 	unsigned int len;
-	long int x;
-	x = INT_MAX;
+	/*long int x;
+	x = INT_MAX;*/
 
-	len = _printf("%X", -1024);
+	len = _printf("%s", "Best\nSchool");
 	printf("%u\n", len);
-	len = printf("%X", -1024);
+	len = printf("%s", "Best\nSchool");
 	printf("%u\n", len);
-
+/*
 	len = _printf("%X", x * 2);
 	printf("%u\n", len);
 	len = printf("%X", x * 2);
