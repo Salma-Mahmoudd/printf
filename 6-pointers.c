@@ -20,14 +20,14 @@ int type_pointer(va_list args)
 		return (count);
 	}
 	out = (unsigned long int)str;
-	for(i = 0; str[i] != '\n'; i++)
+	for (i = 0; str[i] != '\n'; i++)
 		count++;
 
 	_putchar('0');
 	_putchar('x');
 
 	 HEX_char_p(out);
-		
+
 	return (count + 2);
 }
 
