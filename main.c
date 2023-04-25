@@ -9,14 +9,9 @@
  */
 int main(void)
 {
-<<<<<<< HEAD
-	/**
-	int len;
-=======
+/*
 	unsigned int len;
 	long int x;
->>>>>>> b780c933245f16ffc9e3fd2f8cefff5ca0baf417
-
 	x = INT_MAX;
 
 	len = _printf("%X", -1024);
@@ -28,7 +23,7 @@ int main(void)
 	printf("%u\n", len);
 	len = printf("%X", x * 2);
 	printf("%u\n", len);
-/*
+
 	len = _printf("%x", 'a');
 	printf("%d\n", len);
 	len = printf("%x", 'a');
@@ -52,14 +47,11 @@ int main(void)
 	len = printf("%u", -5);
 	printf("%d\n", len);
 	len = _printf("%u", -5);
-<<<<<<< HEAD
-	printf("%d\n", len);*/
+	printf("%d\n", len);
 	char *str = "abcdefg";
 	printf("%s\n", str);
 	_printf("%s\n", str);
-=======
 	printf("%d\n", len);
 */
->>>>>>> b780c933245f16ffc9e3fd2f8cefff5ca0baf417
 	return (0);
 }
