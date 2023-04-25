@@ -9,7 +9,7 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int type_char(va_list args);
-int type_string(va_list args);
+char *type_string(va_list args);
 int type_int(va_list args);
 int type_bin(va_list args);
 int type_uint(va_list args);
