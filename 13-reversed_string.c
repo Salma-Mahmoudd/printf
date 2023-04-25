@@ -24,7 +24,7 @@ int reversed_string(va_list args)
 	if (rev_str == NULL)
 		return(0);
 
-	for(i = count; i > 0; i--)
+	for(i = count - 1; i >= 0; i--)
 	{
 		rev_str[i] = str[j];
 		j++;
