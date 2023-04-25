@@ -7,7 +7,7 @@
 int reversed_string(va_list args)
 {
 	char *str;
-	char *rev_str = NULL;
+	char *rev_str;
 	int i = 0, j = 0, count = 0;
 
 	str = va_arg(args, char*);
@@ -20,6 +20,9 @@ int reversed_string(va_list args)
 	}
 	for(i = 0; str[i] != '\n'; i++)
 		count++;
+	rev_str = malloc(count);
+	if (rev_str == NULL)
+		return(0);
 
 	for(i = count; i > 0; i--)
 	{
