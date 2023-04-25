@@ -16,7 +16,7 @@ int type_uint(va_list args);
 int type_oct(va_list args);
 int type_hex(va_list args);
 int type_HEX(va_list args);
-int type_string_cap(va_listargs);
+int type_string_cap(va_list args);
 int _percent(char k_1, char k, va_list args);
 int _escape(char c);
 

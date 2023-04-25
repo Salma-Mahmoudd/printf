@@ -32,7 +32,7 @@ int type_string_cap(va_list args)
 			{
 				_putchar('\\');
 				_putchar('x');
-				type_HEX(str[i]);
+				/**type_HEX(str[i]);*/
 			}
 		else
 			_putchar(str[i]);
