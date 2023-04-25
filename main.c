@@ -9,6 +9,7 @@
  */
 int main(void)
 {
+	/**
 	int len;
 
 	len = _printf("%u", 192);
@@ -29,6 +30,9 @@ int main(void)
 	len = printf("%u", -5);
 	printf("%d\n", len);
 	len = _printf("%u", -5);
-	printf("%d\n", len);
+	printf("%d\n", len);*/
+	char *str = "abcdefg";
+	printf("%s\n", str);
+	_printf("%s\n", str);
 	return (0);
 }
