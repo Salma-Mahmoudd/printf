@@ -6,8 +6,8 @@
  */
 int type_uint(va_list args)
 {
-	unsigned int i, digit, num, num_digits = 0;
-	int count = 0, place_value = 1;
+	unsigned int i, digit, num, num_digits = 0, place_value = 1;
+	int count = 0;
 
 	num = va_arg(args, unsigned int);
 	if (num <= 9)
@@ -84,7 +84,7 @@ int type_hex(va_list args)
 			return (0);
 		for (i = 0; i < len; i++)
 		{
-			x = '0' + (num % 8);
+			x = '0' + (num % 16);
 			if ((num % 16 > 9) && (num % 16 < 16))
 				x = 'a' + ((num % 16) % 10);
 			cp[i] = x, num /= 16;
@@ -120,7 +120,7 @@ int type_HEX(va_list args)
 			return (0);
 		for (i = 0; i < len; i++)
 		{
-			x = '0' + (num % 8);
+			x = '0' + (num % 16);
 			if ((num % 16 > 9) && (num % 16 < 16))
 				x = 'A' + ((num % 16) % 10);
 			cp[i] = x, num /= 16;
