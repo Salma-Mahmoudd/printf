@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	_printf("Address:%r\n", "addr");
+	_printf("%r\n", "addr");
 	return (0);
 }
