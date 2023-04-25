@@ -30,7 +30,11 @@ int type_pointer(va_list args)
 
 	return (count + 2);
 }
-
+/**
+ * HEX_char_p - function
+ * @str: input
+ * Return: void
+ */
 void HEX_char_p(unsigned long int str)
 {
 	int i, count = 0, len = 0;
