@@ -47,6 +47,7 @@ int _percent(char k_1, char k, va_list args)
 		{"X", type_HEX},
 		{"S", type_string_cap},
 		{"p", type_pointer},
+		{"r", reversed_string},
 		{NULL, NULL}
 	};
 	int i = 0, count = 0;
