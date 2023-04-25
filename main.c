@@ -48,10 +48,11 @@ int main(void)
 	printf("%d\n", len);
 	len = _printf("%u", -5);
 	printf("%d\n", len);
+	*/
 	char *str = "abcdefg";
 	printf("%s\n", str);
 	_printf("%s\n", str);
-	printf("%d\n", len);
-*/
+	_printf("%S\n", "Best\nSchool");
+	/**printf("%d\n", len);*/
 	return (0);
 }
