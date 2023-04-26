@@ -22,7 +22,7 @@ int rot13(va_list args)
 	'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
 	str = va_arg(args, char*);
-	while(str[i])
+	while (str[i])
 		i++;
 	count = i;
 	out = malloc(count);
@@ -30,7 +30,7 @@ int rot13(va_list args)
 	{
 		for (j = 0; j < 52; j++)
 		{
-			if(str[i] == letters[j])
+			if (str[i] == letters[j])
 			{
 				out[i] = rot_13[j];
 				break;
