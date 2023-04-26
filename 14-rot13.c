@@ -8,7 +8,7 @@
 int rot13(va_list args)
 {
 	char *str;
-	int count = 0, i;
+	int count = 0, i = 0, j;
 	char rot_13[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
 	'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 	'l', 'm',
@@ -31,7 +31,7 @@ int rot13(va_list args)
 		{
 			if (str[i] == letters[j])
 			{
-				_putchar(rot_13[j] + '0');
+				_putchar(rot_13[j]);
 				break;
 			}
 			else
