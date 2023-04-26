@@ -8,22 +8,23 @@
 int rot13(va_list args)
 {
 	char *str;
-	int count = 0, j, i;
-	char rot_13[52] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+	int count = 0, i;
+	char rot_13[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
 	'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 	'l', 'm',
 	'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A',
 	'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'};
-	char letters[52] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+	char letters[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
 	'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
 	'y', 'z',
 	'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 	'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
 	str = va_arg(args, char*);
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	count = i;
+	/**
 	for (i = 0; i < count; i++)
 	{
 		for (j = 0; j < 52; j++)
@@ -37,6 +38,22 @@ int rot13(va_list args)
 				continue;
 		}
 	}
+	*/
+	while (*str)
+	{
+		for (i = 0; letters[i]; i++)
+		{
+			if (*str == letters[i])
+			{
+				_putchar(rot_13[i] + '0');
+				break;
+			}
+			else
+				continue;
+
+		}
+	}
+
 
 	return (count);
 }
