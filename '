@@ -1,0 +1,39 @@
+#include "main.h"
+#include <limits.h>
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+	_printf("%ld\n", 1024L);
+	printf("%ld\n", 1024L);
+
+	_printf("%ld\n", -1024L);
+	printf("%ld\n", -1024L);
+
+	_printf("%ld\n", LONG_MAX);
+	printf("%ld\n", LONG_MAX);
+
+	_printf("%li\n", LONG_MIN);
+	printf("%li\n", LONG_MIN);
+
+	_printf("%ld\n", 0L);
+	printf("%ld\n", 0L);
+
+	_printf("%lu\n", 1024UL);
+	printf("%lu\n", 1024UL);
+
+	_printf("%lu\n", 0UL);
+	printf("%lu\n", 0UL);
+
+	_printf("%lu\n", ULONG_MAX);
+	printf("%lu\n", ULONG_MAX);
+
+	_printf("%lo\n", 1024UL);
+	printf("%lo\n", 1024UL);
+
+
+	return (0);
+}
