@@ -9,7 +9,7 @@ int type_pointer(va_list args)
 {
 	char *str;
 	unsigned long int out;
-	int count = 0, i;
+	int count = 0, i = 0;
 
 	str = va_arg(args, char*);
 	if (str == NULL)
@@ -37,7 +37,7 @@ int type_pointer(va_list args)
  */
 void HEX_char_p(unsigned long int str)
 {
-	int i, count = 0, len = 0;
+	int i = 0, count = 0, len = 0;
 	unsigned long int n, num;
 	int *cp;
 	char x;
