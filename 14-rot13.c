@@ -26,9 +26,9 @@ int rot13(va_list args)
 		i++;
 	count = i;
 	out = malloc(count);
-	for(i = 0; i < count; i++)
+	for (i = 0; i < count; i++)
 	{
-		for(j = 0; j < 52; j++)
+		for (j = 0; j < 52; j++)
 		{
 			if(str[i] == letters[j])
 			{
