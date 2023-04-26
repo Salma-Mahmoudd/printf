@@ -1,16 +1,16 @@
 #include "main.h"
 /**
- * type_lint - prints integer
+ * type_hint - prints integer
  * @args: points to the integer to be printed
  * Return: int
  */
-int type_lint(va_list args)
+int type_hint(va_list args)
 {
-	long int i, digit, num;
-	long int place_value = 1;
-	long int num_digits = 0, count = 0, of = 0;
+	short int i, digit, num;
+	short int place_value = 1;
+	short int num_digits = 0, count = 0, of = 0;
 
-	num = va_arg(args, long int);
+	num = va_arg(args, int);
 	if (num < 0)
 	{
 		count += _putchar('-');
@@ -46,16 +46,16 @@ int type_lint(va_list args)
 	return (count);
 }
 /**
- * type_uint - unsigned decimal (base 10) number.
+ * type_huint - unsigned decimal (base 10) number.
  * @args: points to the integer to be printed.
  * Return: length of num.
  */
-int type_luint(va_list args)
+int type_huint(va_list args)
 {
-	long unsigned int i, digit, num, num_digits = 0, place_value = 1;
-	long int count = 0;
+	unsigned short int i, digit, num, num_digits = 0, place_value = 1;
+	short int count = 0;
 
-	num = va_arg(args, long unsigned int);
+	num = va_arg(args, unsigned int);
 	if (num <= 9)
 		return (_putchar('0' + num));
 	i = num;
@@ -76,17 +76,17 @@ int type_luint(va_list args)
 	return (count);
 }
 /**
- * type_oct - a number in octal (base 8).
+ * type_hoct - a number in octal (base 8).
  * @args: points to the integer to be printed.
  * Return: length of num.
  */
-int type_loct(va_list args)
+int type_hoct(va_list args)
 {
-	long int i, count = 0, len = 0;
-	long unsigned int n, num;
-	long int *cp;
+	short int i, count = 0, len = 0;
+	unsigned short int n, num;
+	short int *cp;
 
-	num = va_arg(args, long unsigned int);
+	num = va_arg(args, unsigned int);
 	n = num;
 	if (num == 0)
 		count += _putchar('0' + 0);
@@ -94,7 +94,7 @@ int type_loct(va_list args)
 	{
 		while (n != 0)
 			len++, n /= 8;
-		cp = malloc(sizeof(long int) * len);
+		cp = malloc(sizeof(short int) * len);
 		if (!cp)
 			return (0);
 		for (i = 0; i < len; i++)
@@ -106,18 +106,18 @@ int type_loct(va_list args)
 	return (count);
 }
 /**
- * type_hex - a number in hexidecimal (base 16).
+ * type_hhex - a number in hexidecimal (base 16).
  * @args: points to the integer to be printed.
  * Return: length of num.
  */
-int type_lhex(va_list args)
+int type_hhex(va_list args)
 {
-	long int i, count = 0, len = 0;
-	long unsigned int n, num;
-	long int *cp;
+	short int i, count = 0, len = 0;
+	unsigned short int n, num;
+	short int *cp;
 	char x;
 
-	num = va_arg(args, long unsigned int);
+	num = va_arg(args, unsigned int);
 	n = num;
 	if (num == 0)
 		count += _putchar('0' + 0);
@@ -125,7 +125,7 @@ int type_lhex(va_list args)
 	{
 		while (n != 0)
 			len++, n /= 16;
-		cp = malloc(sizeof(long int) * len);
+		cp = malloc(sizeof(short int) * len);
 		if (!cp)
 			return (0);
 		for (i = 0; i < len; i++)
@@ -142,18 +142,18 @@ int type_lhex(va_list args)
 	return (count);
 }
 /**
- * type_HEX - a number in hexidecimal (base 16).
+ * type_hHEX - a number in hexidecimal (base 16).
  * @args: points to the integer to be printed.
  * Return: length of num.
  */
-int type_lHEX(va_list args)
+int type_hHEX(va_list args)
 {
-	long int i, count = 0, len = 0;
-	long unsigned int n, num;
-	long int *cp;
+	short int i, count = 0, len = 0;
+	unsigned short int n, num;
+	short int *cp;
 	char x;
 
-	num = va_arg(args, long unsigned int);
+	num = va_arg(args, unsigned int);
 	n = num;
 	if (num == 0)
 		count += _putchar('0' + 0);
@@ -161,7 +161,7 @@ int type_lHEX(va_list args)
 	{
 		while (n != 0)
 			len++, n /= 16;
-		cp = malloc(sizeof(long int) * len);
+		cp = malloc(sizeof(short int) * len);
 		if (!cp)
 			return (0);
 		for (i = 0; i < len; i++)
@@ -175,29 +175,5 @@ int type_lHEX(va_list args)
 			count += _putchar(cp[i]);
 		free(cp);
 	}
-	return (count);
-}
-/**
- * _long - take long numbers
- * @args: arg point to the string to be printed.
- * @next: nesxt char of format.
- * Return: length of what will be printed
- */
-int _long(va_list args, char next)
-{
-	long int count = 0;
-
-	if (next == 'd' || next == 'i')
-		count += type_lint(args);
-	else if (next == 'u')
-		count += type_luint(args);
-	else if (next == 'o')
-		count += type_loct(args);
-	else if (next == 'x')
-		count += type_lhex(args);
-	else if (next == 'X')
-		count += type_lHEX(args);
-	else
-		return (0);
 	return (count);
 }

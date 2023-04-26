@@ -28,8 +28,9 @@ int type_string(va_list args)
 }
 /**
  * _percent - check for % char
- * @k_1: char to be checked
- * @k: second char
+ * @k_1: pre char to be checked
+ * @k: char
+ * @k_2: next char
  * @args: arg point to the string to be printed.
  * Return: length of what will be printed
  */
@@ -58,8 +59,8 @@ int _percent(char k_1, char k, char k_2, va_list args)
 		count += _putchar(k);
 	else if (k == 'l')
 		count += _long(args, k_2);
-/**	else if (k == 'h')
-		count += _short(args, k_2);*/
+	else if (k == 'h')
+		count += _short(args, k_2);
 	else
 	{
 		while (x[i].typ && (*(x[i].typ) != k))

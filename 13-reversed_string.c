@@ -18,13 +18,13 @@ int reversed_string(va_list args)
 			 _putchar(str[i]);
 		return (6);
 	}
-	for(i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		count++;
 	rev_str = malloc(count);
 	if (rev_str == NULL)
 		return(0);
 
-	for(i = count - 1; i >= 0; i--)
+	for (i = count - 1; i >= 0; i--)
 	{
 		rev_str[i] = str[j];
 		j++;

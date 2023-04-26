@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * type_binary - the unsigned int argument
+ * type_bin - the unsigned int argument
  * is converted to binary
  * @args: arg point to the num to be converted.
  * Return: length of num.
