@@ -24,7 +24,7 @@ int rot13(va_list args)
 	while (str[i] != '\0')
 		i++;
 	count = i;
-	/**
+
 	for (i = 0; i < count; i++)
 	{
 		for (j = 0; j < 52; j++)
@@ -36,21 +36,6 @@ int rot13(va_list args)
 			}
 			else
 				continue;
-		}
-	}
-	*/
-	while (*str)
-	{
-		for (i = 0; letters[i]; i++)
-		{
-			if (*str == letters[i])
-			{
-				_putchar(rot_13[i] + '0');
-				break;
-			}
-			else
-				continue;
-
 		}
 	}
 
