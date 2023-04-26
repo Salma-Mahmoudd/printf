@@ -8,7 +8,6 @@
 int rot13(va_list args)
 {
 	char *str;
-	char *out;
 	int count = 0, j, i;
 	char rot_13[52] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
 	'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
@@ -25,14 +24,13 @@ int rot13(va_list args)
 	while (str[i])
 		i++;
 	count = i;
-	out = malloc(count);
 	for (i = 0; i < count; i++)
 	{
 		for (j = 0; j < 52; j++)
 		{
 			if (str[i] == letters[j])
 			{
-				out[i] = rot_13[j];
+				_putchar(rot_13[j] + '0');
 				break;
 			}
 			else
@@ -40,6 +38,5 @@ int rot13(va_list args)
 		}
 	}
 
-	free(out);
 	return (count);
 }
