@@ -19,9 +19,9 @@ int type_pointer(va_list args)
 			count += _putchar(str[i]);
 		return (count);
 	}
-	out = (unsigned long int)str;
-	for (i = 0; str[i] != '\n'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		count++;
+	out = (unsigned long int)str;
 
 	_putchar('0');
 	_putchar('x');

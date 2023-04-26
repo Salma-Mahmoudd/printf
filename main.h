@@ -31,6 +31,7 @@ void HEX_char(char str);
 int type_pointer(va_list args);
 void HEX_char_p(unsigned long int str);
 int reversed_string(va_list args);
+int rot13(va_list args);
 int _percent(char k_1, char k, char k_2, va_list args);
 int _escape(char c);
 int _long(va_list args, char k_2);
